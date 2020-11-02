@@ -1,10 +1,13 @@
 {
-  "name": "squarelate",
+  "name": "@kbobrowski/squarelate",
   "version": "1.0.0",
   "description": "Squarespace translator",
   "main": "dist/index.js",
   "browser": "dist/squarelate.min.js",
   "unpkg": "dist/squarelate.min.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
