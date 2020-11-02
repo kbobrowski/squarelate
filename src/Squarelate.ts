@@ -17,7 +17,7 @@ export namespace Squarelate {
         (url) => url.startsWith('/s/') ? url.substring(3) : null)
       .textTranslation(
         (lang, callback) => $.getJSON(`${baseUrl}/${lang}/dict.json`, callback),
-        'p, :header, span, a, b, i'
+        'p, :header, span, a, b, i, strong, em'
       )
       .useLocalStorage(localStorageKey)
       .sourceLang(sourceLang)
