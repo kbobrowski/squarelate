@@ -4,15 +4,21 @@
   "description": "Squarespace translator",
   "main": "dist/index.js",
   "browser": "dist/squarelate.min.js",
+  "unpkg": "dist/squarelate.min.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc && rollup -c",
-    "test": "jest"
+    "test": "jest",
+    "prepublish": "npm t && npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kbobrowski/squarelate.git"
   },
   "keywords": [
+    "translate",
     "squarespace",
     "i18n",
     "l10n",
@@ -36,6 +42,7 @@
     "typescript": "^4.0.5"
   },
   "dependencies": {
+    "file-saver": "^2.0.2",
     "jquery": "^3.5.1"
   }
 }
