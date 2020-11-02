@@ -2,6 +2,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "lib": ["es2016", "DOM"],
+    "esModuleInterop": true,
     "sourceMap": true
   },
   "include": [
