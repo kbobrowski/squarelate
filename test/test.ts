@@ -23,7 +23,7 @@ test('translate to two languages', async () => {
       }
     }, 'p')
     .sourceLang('en')
-    .useLocalStorage('lang')
+    .useCookie('lang')
 
   document.body.innerHTML = '<p id="test">hi</p>'
   const selector = $('#test')
@@ -48,7 +48,7 @@ test('translate nested tags', async () => {
       }), 'p, span, b'
     )
     .sourceLang('en')
-    .useLocalStorage('lang')
+    .useCookie('lang')
 
   document.body.innerHTML = '<p>hi<span>hi</span>hi<b>hi</b>hi</p>'
   window.history.replaceState({}, '', '/?lang=pl');
@@ -64,7 +64,7 @@ test('translate image', async () => {
       ((lang, callback) => callback(['test.png']))
     )
     .sourceLang('en')
-    .useLocalStorage('lang')
+    .useCookie('lang')
   document.body.innerHTML = '<img data-src="/images/test.png" src="/images/test.png?width=200"/>'
   window.history.replaceState({}, '', '/?lang=pl');
   builder.init()
@@ -79,7 +79,7 @@ test('translate link', async () => {
       (lang, callback) => callback(['test.pdf']),
       (url) => url.startsWith('/assets/') ? url.substring('/assets/'.length) : null)
     .sourceLang('en')
-    .useLocalStorage('lang')
+    .useCookie('lang')
   document.body.innerHTML = '<a href="/assets/test.pdf">test</a>'
   window.history.replaceState({}, '', '/?lang=pl');
   builder.init()

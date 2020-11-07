@@ -6,7 +6,8 @@ export namespace Squarelate {
     return new Builder()
   }
 
-  export const defaultBuilder = (baseUrl: string, localStorageKey: string, sourceLang: string): Builder => {
+  export const defaultBuilder = (baseUrl: string, sourceLang: string): Builder => {
+    const storageKey = "squarelate-lang"
     return new Builder()
       .imageTranslation(
         (lang, filename) => `${baseUrl}/${lang}/images/${filename}`,
@@ -19,7 +20,7 @@ export namespace Squarelate {
         (lang, callback) => $.getJSON(`${baseUrl}/${lang}/dict.json`, callback),
         'p, :header, span, a, b, i, strong, em'
       )
-      .useLocalStorage(localStorageKey)
+      .useCookie(storageKey)
       .sourceLang(sourceLang)
   }
 }
