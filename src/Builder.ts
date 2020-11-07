@@ -193,7 +193,6 @@ export class Builder {
         lang = savedLang
       }
       this.setLang_(lang)
-      history.pushState({}, '', `${window.location.pathname}?lang=${lang}`)
       if (lang !== this.sourceLang_) {
         if (this.processDict_ && this.tags_) {
           this.processDict_(lang, (data) => {
