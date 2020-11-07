@@ -1,6 +1,6 @@
 {
   "name": "@kbobrowski/squarelate",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Squarespace translator",
   "main": "dist/index.js",
   "browser": "dist/squarelate.min.js",

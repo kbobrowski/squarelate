@@ -44,6 +44,7 @@ export class Builder {
   processAssetList_?: (lang: string, callback: (data: string[]) => void) => void
   processImagesList_?: (lang: string, callback: (data: string[]) => void) => void
   urlToFilename_?: (url: string) => string
+  langInUrl_?: boolean
 
   imageTranslation(translatedPath: (lang: string, filename: string) => string, listProducer: (lang: string, callback: (data: string[]) => void) => void) {
     this.translateImage_ = (url: string, list: string[], lang: string): string => {
@@ -105,6 +106,11 @@ export class Builder {
 
   sourceLang(arg: string) {
     this.sourceLang_ = arg
+    return this
+  }
+
+  langInUrl(arg: boolean) {
+    this.langInUrl_ = arg
     return this
   }
 
@@ -193,6 +199,9 @@ export class Builder {
         lang = savedLang
       }
       this.setLang_(lang)
+      if (this.langInUrl_) {
+        history.pushState({}, '', `${window.location.pathname}?lang=${lang}`)
+      }
       if (lang !== this.sourceLang_) {
         if (this.processDict_ && this.tags_) {
           this.processDict_(lang, (data) => {

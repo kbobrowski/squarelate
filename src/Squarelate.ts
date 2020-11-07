@@ -21,6 +21,7 @@ export namespace Squarelate {
         'p, :header, span, a, b, i, strong, em'
       )
       .useCookie(storageKey)
+      .langInUrl(false)
       .sourceLang(sourceLang)
   }
 }
